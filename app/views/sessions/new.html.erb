@@ -9,20 +9,28 @@
   </header>
 
   
-  <div class="col-sm-6 col-sm-offset-1">
-  <%= notice %>
-  <%= form_tag '/login' do %>
-    <div class="form-group">
-    Email: <%= text_field_tag :email %>
-    </div>
-    <div class="form-group">
-    Password: <%= password_field_tag :password %>
-    </div>
-    <%= submit_tag 'Login', class: 'btn btn-primary' %>
+  
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-1">
+      <%= notice %>
+      <%= form_tag '/login' do %>
+        <div class="row form-group">
+          <%= text_field_tag :email, "", class: 'form-control' %>
+      </div>
+    
+        <div class="row form-group">
+          <%= password_field_tag :password, "", class: 'form-control' %>
+        </div>
+   
+      <div class="row form-group">
+      <%= submit_tag 'Login', class: 'btn btn-primary' %>
+      </div>
+    
   
   <% end %>
+</div>
+</div>
 
-
-  </div>
+ 
 
 </section>
