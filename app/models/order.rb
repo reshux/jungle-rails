@@ -7,4 +7,8 @@ class Order < ActiveRecord::Base
 
   validates :stripe_charge_id, presence: true
 
+  def items_with_descriptions
+    line_items.includes(:product)
+  end
+
 end

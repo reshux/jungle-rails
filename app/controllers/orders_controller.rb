@@ -1,9 +1,8 @@
 class OrdersController < ApplicationController
 
-  before_filter :authorize
-
   def show
     @order = Order.find(params[:id])
+    @items = @order.items_with_descriptions
   end
 
   def create
