@@ -11,11 +11,12 @@ Rails.application.routes.draw do
   end
 
   get '/register' => 'users#new'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 
   resources :orders, only: [:create, :show]
-
   resources :users, only: [:new, :create, :login]
-
 
   namespace :admin do
 
