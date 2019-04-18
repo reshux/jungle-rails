@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thanks for your Order#<%= @order.id%>!</h1>
+
+<table>
+     <%= render @line_items %>
+    </table>
+  </body>
+</html> 
