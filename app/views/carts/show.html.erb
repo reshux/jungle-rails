@@ -6,7 +6,8 @@
 
   <% if cart.length == 0 %>
   <h3> It appears your cart is empty... </h3>
-
+  </br>
+  <%= link_to "Go Back", :root, class: 'btn btn-lg btn-primary' %>
   <%else%>
 
   <div class="panel panel-default items">
