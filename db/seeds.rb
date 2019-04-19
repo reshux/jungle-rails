@@ -141,7 +141,7 @@ puts "Fake reviews time!"
 
 Review.create({product_id: 1, user_id: 1, description: "The product is great but it arrived damaged. Needed to do an exchange", rating: 4})
 Review.create({product_id: 5, user_id: 1, description: "I am ambivalent about this.", rating: 3})
-Review.create({product_id: 12, user_id: 1, description: "Totally in love with it, for reals.", rating: 5})
+Review.create({product_id: 5, user_id: 2, description: "Totally in love with it, for reals.", rating: 5})
 Review.create({product_id: 3, user_id: 1, description: "ABSOLUTELY HATE IT!", rating: 1})
 
 puts "DONE!"

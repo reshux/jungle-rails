@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+  before_filter :authorize
+
   def show
     @order = Order.find(params[:id])
     @items = @order.items_with_descriptions
@@ -11,7 +13,7 @@ class OrdersController < ApplicationController
  
     if order.valid?
       empty_cart!
-      UserMailer.email_receipt("duruhanunsal@gmail.com", order).deliver_now
+      UserMailer.email_receipt(order.email, order).deliver_now
       redirect_to order, notice: 'Your Order has been placed.'
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
