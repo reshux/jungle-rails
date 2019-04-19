@@ -1,14 +1,17 @@
 class SessionsController < ApplicationController
   def new
+    @user = User.new
   end
 
   def create
     user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])
+    if user && user.authenticate(params[:password]) 
       session[:user_id] = user.id
       redirect_to '/'
     else
-      redirect_to '/login', notice: "Wrong input"
+      @user = User.new
+      flash.now[:alert] = 'Wrong Credentials!'
+      render(:'sessions/new')
     end
   end
 

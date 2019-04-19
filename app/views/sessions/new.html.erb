@@ -6,15 +6,24 @@
 
   <div class="row">
     <div class="col-sm-6 col-sm-offset-1">  
-      <%= form_tag '/login' do %>
+      <%= form_for @user, url: login_path do |form| %>
+        <% if !flash.empty? %>
+          <% flash.each do |type, msg| %>
+            <div class="row form-group">
+            <span><%= msg %></span><br/>
+            </div> 
+          <% end %>
+        <% end %>
         <div class="row form-group">
-          <%= text_field_tag :email, "", class: 'form-control' %>
+          <%= form.label :email %>
+          <%= form.email_field :email, class: 'form-control' %>
         </div>  
         <div class="row form-group">
-          <%= password_field_tag :password, "", class: 'form-control' %>
+          <%= form.label :password %>
+          <%= form.password_field :password, class: 'form-control' %>
         </div>  
         <div class="row form-group">
-          <%= submit_tag 'Login', class: 'btn btn-primary' %>
+          <%= form.submit 'Login', class: 'btn btn-primary' %>
         </div>
     <% end %>
     </div>
