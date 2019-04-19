@@ -6,8 +6,10 @@
   <body>
     <h1>Thanks for your Order#<%= @order.id%>!</h1>
 
-<table>
-     <%= render @line_items %>
+  <table>
+    <% @order.line_items.each do |line_item| %>
+      <%= render 'item', product_id: line_item.product_id, line_total: line_item.total_price %>
+      <% end %>
     </table>
   </body>
 </html> 
