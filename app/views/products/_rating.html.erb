@@ -1,8 +1,15 @@
 <dt> User </dt>
-<dd> <%= user %></dd>
+<dd> <%= review.user.first_name %></dd>
 <dt>Review</dt>
-<dd><%= description %></dd>
+<dd><%= review.description %></dd>
 <dt>Rating</dt>
-<dd><%= rating %> / 5</dd>
+<dd><%= review.rating %> / 5</dd>
+
+
+
+<% if current_user && current_user.id == review.user.id %>
+<dt>Delete</dt>
+<dd>  <%= link_to fa_icon('trash'), [@product, review], class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %></dd>
+<% end %>
 
 

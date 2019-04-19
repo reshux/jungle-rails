@@ -26,17 +26,20 @@
           <dt><h3>Reviews</h3></dt>
           <dd></dd>
           <% @reviews.each do |review| %>
-            <%= render 'rating', rating: review.rating, description: review.description, user: review.user.first_name %>
+            <%= render 'rating', review: review, user_id: review.user.id%>
           </br>
         <% end %>
         
         <% if current_user %>
-          <h4>Leave a Review:</h4>
+          <div class="form-group">
           <%= form_for :review, url: "#{@product.id}/reviews" do |form| %>
-          <%= form.label :review %><br/>
-          <%= form.text_area :description %><br/>
-          <%= form.select :rating, [1, 2, 3, 4, 5] %><br/>
-          <%= form.submit %><br/>
+          <dt></dt><dd><%= form.label :review %></dd>
+          <dt></dt><dd><%= form.text_area :description, class: 'form-control' %></dd>
+          <dt></dt><dd><p></p></dd>
+          <dt></dt><dd>Your rating of this product is: <%= form.select :rating, [1, 2, 3, 4, 5], class: 'form-control' %> / 5</dd>
+          <dt></dt><dd><p></p></dd>
+          <dt></dt><dd><%= form.submit "Submit", class: 'btn btn-primary' %></dd>
+          </div>
           <% end %>
         <% end %>
         </dl>
