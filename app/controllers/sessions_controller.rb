@@ -9,9 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to '/'
     else
-      @user = User.new
-      flash.now[:alert] = 'Wrong Credentials!'
-      render(:'sessions/new')
+      redirect_to '/login', notice: "Wrong input"
     end
   end
 

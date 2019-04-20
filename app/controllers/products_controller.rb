@@ -8,5 +8,4 @@ class ProductsController < ApplicationController
     @product = Product.find params[:id]
     @reviews = Review.where(product_id: params[:id]).order(created_at: :desc)
   end
-
 end
