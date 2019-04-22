@@ -60,6 +60,8 @@ GEM
     dotenv (1.0.2)
     dotenv-rails (1.0.2)
       dotenv (= 1.0.2)
+    email_validator (2.0.1)
+      activemodel
     erubis (2.7.0)
     execjs (2.7.0)
     faker (1.6.1)
@@ -213,6 +215,7 @@ DEPENDENCIES
   byebug
   carrierwave
   dotenv-rails
+  email_validator
   faker
   font-awesome-rails
   jbuilder (~> 2.0)
